@@ -362,12 +362,11 @@ body.signature-open{
   <div class="field"><label class="req"><span class="label-main">工號</span><span class="required-star">*</span><small>Worker No.</small></label><input id="workerNo"></div>
   <div class="field"><label class="req"><span class="label-main">身分證（護照 ID）</span><span class="required-star">*</span><small>National ID / Passport ID</small></label><input id="nationalId" autocomplete="off"></div>
   <div class="field"><label class="req"><span class="label-main">出生年月日（西元）</span><span class="required-star">*</span><small>Birthdate (Gregorian)</small></label><div class="date3"><input id="birthY" inputmode="numeric" placeholder="年 / Year"><input id="birthM" inputmode="numeric" placeholder="月 / Month"><input id="birthD" inputmode="numeric" placeholder="日 / Day"></div></div>
-  <div class="field"><label class="req"><span class="label-main">所屬公司／單位／部門</span><span class="required-star">*</span><small>Employer / Workplace / Department</small></label><input id="department"></div>
+  <div class="field"><label class="req"><span class="label-main">所屬公司／單位／部門</span><span class="required-star">*</span><small>Employer / Workplace / Department</small></label><select id="department"><option value="">請選擇 / Select</option><option value="MTTW 桃園">MTTW 桃園</option><option value="MMTL 銅鑼">MMTL 銅鑼</option><option value="MMT 台中">MMT 台中</option><option value="MTB 台中">MTB 台中</option><option value="AATT 台中">AATT 台中</option><option value="MMTN 台南">MMTN 台南</option><option value="MTT 台北辦公室">MTT 台北辦公室</option><option value="台灣其他廠區/辦公室">台灣其他廠區/辦公室</option></select></div>
   <div class="field"><label class="req"><span class="label-main">公司 Email</span><span class="required-star">*</span><small>Company Email</small></label><input id="companyEmail" type="email" placeholder="name@micron.com"></div>
   <div class="field"><label class="req"><span class="label-main">私人 Email</span><span class="required-star">*</span><small>Personal Email</small></label><input id="personalEmail" type="email" placeholder="name@example.com"></div>
   <div class="field"><label class="req"><span class="label-main">班別</span><span class="required-star">*</span><small>Shift</small></label><input id="shift" placeholder="例如：日班 / 夜班"></div>
-  <div class="field"><label class="req"><span class="label-main">Microsoft Teams</span><span class="required-star">*</span><small>Microsoft Teams ID</small></label><input id="teams" placeholder="姓名、帳號或 Email"></div>
-  <div class="field"><label class="req"><span class="label-main">手機號碼</span><span class="required-star">*</span><small>Personal Phone</small></label><input id="mobile" type="tel"></div>
+    <div class="field"><label class="req"><span class="label-main">手機號碼</span><span class="required-star">*</span><small>Personal Phone</small></label><input id="mobile" type="tel"></div>
   <div class="field full"><label class="req"><span class="label-main">地址</span><span class="required-star">*</span><small>Address</small></label><input id="address"></div>
 </div>
 
@@ -601,7 +600,7 @@ function saveSig(){
   closeSign();
 }
 function v(id){return $(id).value.trim()}
-function validate(){const req=[['name','姓名'],['gender','性別'],['workerNo','工號'],['nationalId','身分證（護照 ID）'],['birthY','出生年'],['birthM','出生月'],['birthD','出生日'],['department','所屬公司／單位／部門'],['companyEmail','公司 Email'],['personalEmail','私人 Email'],['shift','班別'],['teams','Microsoft Teams'],['mobile','手機號碼'],['address','地址'],['applyY','申請年'],['applyM','申請月'],['applyD','申請日']];for(const [id,n] of req){if(!v(id)){alert('請填寫：'+n);$(id).focus();return false}}if(!$('agree').checked){alert('請勾選同意條款');return false}if($('signImage').style.display!=='block'){alert('請完成電子簽名');return false}return true}
+function validate(){const req=[['name','姓名'],['gender','性別'],['workerNo','工號'],['nationalId','身分證（護照 ID）'],['birthY','出生年'],['birthM','出生月'],['birthD','出生日'],['department','所屬公司／單位／部門'],['companyEmail','公司 Email'],['personalEmail','私人 Email'],['shift','班別'],['mobile','手機號碼'],['address','地址'],['applyY','申請年'],['applyM','申請月'],['applyD','申請日']];for(const [id,n] of req){if(!v(id)){alert('請填寫：'+n);$(id).focus();return false}}if(!$('agree').checked){alert('請勾選同意條款');return false}if($('signImage').style.display!=='block'){alert('請完成電子簽名');return false}return true}
 function wrap(ctx,text,maxW){const out=[];let line='';for(const ch of text){const t=line+ch;if(ctx.measureText(t).width>maxW&&line){out.push(line);line=ch}else line=t}if(line)out.push(line);return out}
 function drawLine(ctx,x1,y1,x2,y2,w=1){ctx.lineWidth=w;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke()}
 function box(ctx,x,y,w,h,labelZh,labelEn,value){
@@ -756,10 +755,9 @@ async function downloadPDF(){
  box(g,x+half,y+H*3,half,H,'私人 Email','Personal Email',v('personalEmail'));
 
  box(g,x,y+H*4,half,H,'班別','Shift',v('shift'));
- box(g,x+half,y+H*4,half,H,'Microsoft Teams','Microsoft Teams ID',v('teams'));
+ box(g,x+half,y+H*4,half,H,'手機號碼','Personal Phone',v('mobile'));
 
- box(g,x,y+H*5,half,H,'手機號碼','Personal Phone',v('mobile'));
- box(g,x+half,y+H*5,half,H,'地址','Address',v('address'));
+ box(g,x,y+H*5,W,H,'地址','Address',v('address'));
 
  let sy=y+H*6+18;
 
