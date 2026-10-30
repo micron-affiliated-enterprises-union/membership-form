@@ -139,11 +139,11 @@ body::after{
   z-index:0;
 }
 body::before{
-  content:"僅供台灣美光關係企業工會入會使用 / For Taiwan Taiwan Micron Affiliated Enterprises Union Membership Use Only";
+  content:"僅供台灣美光關係企業工會入會使用 / For Taiwan Taiwan Micron Enterprise Affiliate Union Membership Use Only";
   top:34%;
 }
 body::after{
-  content:"僅供台灣美光關係企業工會入會使用 / For Taiwan Taiwan Micron Affiliated Enterprises Union Membership Use Only";
+  content:"僅供台灣美光關係企業工會入會使用 / For Taiwan Taiwan Micron Enterprise Affiliate Union Membership Use Only";
   top:66%;
 }
 .watermark-mid{
@@ -307,12 +307,12 @@ body.signature-open{
   </div>
 </div>
 
-<div class="watermark-mid">僅供台灣美光關係企業工會入會使用 / For Taiwan Taiwan Micron Affiliated Enterprises Union Membership Use Only</div>
+<div class="watermark-mid">僅供台灣美光關係企業工會入會使用 / For Taiwan Taiwan Micron Enterprise Affiliate Union Membership Use Only</div>
 
 <section class="intro-page" id="introPage">
   <header class="intro-hero">
     <h1>台灣美光關係企業工會</h1>
-    <div class="en">Taiwan Micron Affiliated Enterprises Union</div>
+    <div class="en">Taiwan Micron Enterprise Affiliate Union</div>
     <div class="slogan">團結同行，守護勞動權益<br>Together We Stand. Together We Succeed.</div>
   </header>
   <div class="intro-body">
@@ -396,7 +396,7 @@ body.signature-open{
 <main class="card" id="formPage" style="display:none">
 <header class="header">
   <h1>台灣美光關係企業工會</h1>
-  <div class="en">Taiwan Micron Affiliated Enterprises Union</div>
+  <div class="en">Taiwan Micron Enterprise Affiliate Union</div>
   <div class="sub">入會申請書 / Membership Application</div>
 </header>
 
@@ -430,7 +430,7 @@ body.signature-open{
         如本人當月薪資不足扣款，則依工會其他繳費方式辦理。如本人欲改以其他方式繳納經常會費，將自行向工會提出取消薪資代扣會費之申請，再由公司停止自本人薪資中扣取工會經常會費。<br><br>
 
         <strong>English</strong><br>
-        I am a member of the Taiwan Taiwan Micron Affiliated Enterprises Union. In accordance with the Union Bylaws and applicable laws, I authorize my employing Micron company, after this application is submitted, to deduct the monthly regular Union dues of NT$50 from my salary in the month in which the dues are payable and remit the deducted dues to the Union. Payroll deduction arrangements and the payment method for monthly dues, including regular dues and any solidarity fund, are handled in accordance with resolutions of the Union Board and Supervisor.<br><br>
+        I am a member of the Taiwan Taiwan Micron Enterprise Affiliate Union. In accordance with the Union Bylaws and applicable laws, I authorize my employing Micron company, after this application is submitted, to deduct the monthly regular Union dues of NT$50 from my salary in the month in which the dues are payable and remit the deducted dues to the Union. Payroll deduction arrangements and the payment method for monthly dues, including regular dues and any solidarity fund, are handled in accordance with resolutions of the Union Board and Supervisor.<br><br>
         If my salary for a given month is insufficient for the deduction, I will pay the dues using another payment method provided by the Union. If I wish to change to another method of paying the monthly Union dues, I will submit a request to the Union to cancel the payroll deduction authorization, after which the Company will stop deducting the monthly Union dues from my salary.
       </div>
     </div>
@@ -734,7 +734,7 @@ function drawPdfWatermark(ctx,w,h){
  ctx.textAlign='center';
  ctx.fillStyle='rgba(60,80,100,0.045)';
  ctx.font='bold 27px "Microsoft JhengHei","Noto Sans TC",Arial,sans-serif';
- const wm='僅供台灣美光關係企業工會入會使用 / For Taiwan Taiwan Micron Affiliated Enterprises Union Membership Use Only';
+ const wm='僅供台灣美光關係企業工會入會使用 / For Taiwan Taiwan Micron Enterprise Affiliate Union Membership Use Only';
  ctx.fillText(wm,0,-230);
  ctx.fillText(wm,0,0);
  ctx.fillText(wm,0,230);
@@ -810,7 +810,7 @@ async function downloadPDF(saveToDevice=true){
  g.font='bold 48px "Microsoft JhengHei","Noto Sans TC",sans-serif';
  g.fillText('台灣美光關係企業工會',620,70);
  g.fillStyle='#0b668f';g.font='bold 30px Arial,sans-serif';
- g.fillText('Taiwan Micron Affiliated Enterprises Union',620,115);
+ g.fillText('Taiwan Micron Enterprise Affiliate Union',620,115);
  g.fillStyle='#111';g.font='bold 32px "Microsoft JhengHei","Noto Sans TC",sans-serif';
  g.fillText('入會申請書 / Membership Application',620,165);
  g.strokeStyle='#0b668f';drawLine(g,55,198,1185,198,5);
@@ -873,7 +873,7 @@ async function downloadPDF(saveToDevice=true){
    return startY+lines.length*24;
  }
 
- const en1="I am a member of the Taiwan Taiwan Micron Affiliated Enterprises Union. In accordance with the Union Bylaws and applicable laws, I authorize my employing Micron company, after this application is submitted, to deduct the monthly regular Union dues of NT$50 from my salary in the month in which the dues are payable and remit the deducted dues to the Union. Payroll deduction arrangements and the payment method for monthly dues, including regular dues and any solidarity fund, are handled in accordance with resolutions of the Union Board and Supervisor.";
+ const en1="I am a member of the Taiwan Taiwan Micron Enterprise Affiliate Union. In accordance with the Union Bylaws and applicable laws, I authorize my employing Micron company, after this application is submitted, to deduct the monthly regular Union dues of NT$50 from my salary in the month in which the dues are payable and remit the deducted dues to the Union. Payroll deduction arrangements and the payment method for monthly dues, including regular dues and any solidarity fund, are handled in accordance with resolutions of the Union Board and Supervisor.";
  const en2='If my salary for a given month is insufficient for the deduction, I will pay the dues using another payment method provided by the Union. If I wish to change to another method of paying the monthly Union dues, I will submit a request to the Union to cancel the payroll deduction authorization, after which the Company will stop deducting the monthly Union dues from my salary.';
  yy=drawEn(en1,yy)+16;
  yy=drawEn(en2,yy);
